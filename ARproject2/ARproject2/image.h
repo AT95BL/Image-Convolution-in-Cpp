@@ -1,13 +1,11 @@
 ﻿#pragma once
 
-#ifndef IMAGE_H
-#define IMAGE_H
-
 #include <vector>
 #include <cstdint>
 #include <string>
 #include <iostream>
 #include <fstream>
+
 
 // Struktura za predstavljanje boje (24-bitni BMP format)
 struct Color {
@@ -126,5 +124,3 @@ struct BMPHeader {
 #pragma pack(pop)
 
 void saveBMP(const std::string& , const Image& );
-
-#endif // !IMAGE_H

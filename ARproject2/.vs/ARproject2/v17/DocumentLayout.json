@@ -7,28 +7,8 @@
       "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\kernel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\kernel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\image.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\convolution.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\convolution.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\imageGeneratorScript.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\imageGeneratorScript.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,84 +18,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "kernel.h",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.h",
-              "RelativeDocumentMoniker": "ARproject2\\kernel.h",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.h",
-              "RelativeToolTip": "ARproject2\\kernel.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T12:26:38.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "kernel.cpp",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.cpp",
-              "RelativeDocumentMoniker": "ARproject2\\kernel.cpp",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\kernel.cpp",
-              "RelativeToolTip": "ARproject2\\kernel.cpp",
+              "Title": "imageGeneratorScript.py",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\imageGeneratorScript.py",
+              "RelativeDocumentMoniker": "ARproject2\\imageGeneratorScript.py",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\imageGeneratorScript.py",
+              "RelativeToolTip": "ARproject2\\imageGeneratorScript.py",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T12:29:12.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "convolution.h",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.h",
-              "RelativeDocumentMoniker": "ARproject2\\convolution.h",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.h",
-              "RelativeToolTip": "ARproject2\\convolution.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T12:10:10.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "convolution.cpp",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.cpp",
-              "RelativeDocumentMoniker": "ARproject2\\convolution.cpp",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution.cpp",
-              "RelativeToolTip": "ARproject2\\convolution.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T12:19:50.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "image.h",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.h",
-              "RelativeDocumentMoniker": "ARproject2\\image.h",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.h",
-              "RelativeToolTip": "ARproject2\\image.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T12:05:18.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "image.cpp",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.cpp",
-              "RelativeDocumentMoniker": "ARproject2\\image.cpp",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\image.cpp",
-              "RelativeToolTip": "ARproject2\\image.cpp",
-              "ViewState": "AQIAADUAAAAAAAAAAAAawEIAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T12:18:00.246Z",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-04-19T12:21:46.472Z",
               "EditorCaption": ""
             },
             {
@@ -126,7 +41,7 @@
               "RelativeDocumentMoniker": "ARproject2\\main.cpp",
               "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\main.cpp",
               "RelativeToolTip": "ARproject2\\main.cpp",
-              "ViewState": "AQIAABEAAAAAAAAAAAAqwCYAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-12T09:21:29.299Z",
               "EditorCaption": ""

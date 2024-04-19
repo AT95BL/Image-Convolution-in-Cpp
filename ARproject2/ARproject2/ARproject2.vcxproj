@@ -128,14 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="convolution.cpp" />
+    <ClCompile Include="convolution_tester.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="kernel.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="convolution.h" />
+    <ClInclude Include="convolution_tester.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="kernel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imageGeneratorScript.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
