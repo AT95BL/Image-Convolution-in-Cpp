@@ -22,5 +22,9 @@ public:
 
     void runTests2(const std::vector<std::string>&, const std::vector<std::string>&, const std::vector<float>&);
 
+    void runTest3(const std::string&, const std::string&, const std::vector<float>&);
+
+    void runTests3(const std::vector<std::string>&, const std::vector<std::string>&, const std::vector<float>&);
+
 };
 
