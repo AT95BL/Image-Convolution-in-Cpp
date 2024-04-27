@@ -10,6 +10,8 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <numeric>
+
 class ConvolutionTester {
 public:
     ConvolutionTester() {}

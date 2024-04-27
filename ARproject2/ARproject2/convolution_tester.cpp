@@ -26,13 +26,36 @@ void ConvolutionTester::runTest1(const std::string& inputPath, const std::string
     saveBMP(outputPath, outputImage);
 }
 
-void ConvolutionTester::runTests1(   const std::vector<std::string>& inputPaths, 
-                                    const std::vector<std::string>& outputPaths, 
-                                    const std::vector<float>& kernel){
+void ConvolutionTester::runTests1(  
+            const std::vector<std::string>& inputPaths, 
+            const std::vector<std::string>& outputPaths, 
+            const std::vector<float>& kernel){
+
+    std::vector<double> executionTimes;
 
     for (size_t i = 0; i < inputPaths.size(); ++i) {
+        auto start = std::chrono::steady_clock::now();
+
         runTest1(inputPaths[i], outputPaths[i], kernel);
+
+        auto end = std::chrono::steady_clock::now();
+        double testTime = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        executionTimes.push_back(testTime);
     }
+
+    // Calculate mean (average) execution time
+    double meanTime = std::accumulate(executionTimes.begin(), executionTimes.end(), 0.0) / executionTimes.size();
+
+    // Calculate variance of execution time
+    double variance = 0.0;
+    for (double time : executionTimes) {
+        variance += (time - meanTime) * (time - meanTime);
+    }
+    variance /= executionTimes.size();
+
+    // Output mean and variance of execution time to console
+    std::cout << "Mean execution time across all images: " << meanTime << " milliseconds" << std::endl;
+    std::cout << "Variance of execution time across all images: " << variance << " milliseconds^2" << std::endl;
 }
 
 
@@ -64,13 +87,35 @@ void ConvolutionTester::runTest2(const std::string& inputPath, const std::string
     cv::imwrite(outputPath, outputMat);
 }
 
-void ConvolutionTester::runTests2(const std::vector<std::string>& inputPaths,
+void ConvolutionTester::runTests2(
+    const std::vector<std::string>& inputPaths,
     const std::vector<std::string>& outputPaths,
     const std::vector<float>& kernel) {
 
+    std::vector<double> executionTimes;
+
     for (size_t i = 0; i < inputPaths.size(); ++i) {
+
+        auto start = std::chrono::steady_clock::now();
         runTest2(inputPaths[i], outputPaths[i], kernel);
+        auto end = std::chrono::steady_clock::now();
+        double testTime = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        executionTimes.push_back(testTime);
     }
+
+    // Calculate mean (average) execution time
+    double meanTime = std::accumulate(executionTimes.begin(), executionTimes.end(), 0.0) / executionTimes.size();
+
+    // Calculate variance of execution time
+    double variance = 0.0;
+    for (double time : executionTimes) {
+        variance += (time - meanTime) * (time - meanTime);
+    }
+    variance /= executionTimes.size();
+
+    // Output mean and variance of execution time to console
+    std::cout << "Mean execution time across all images: " << meanTime << " milliseconds" << std::endl;
+    std::cout << "Variance of execution time across all images: " << variance << " milliseconds^2" << std::endl;
 }
 
 void ConvolutionTester::runTest3(const std::string& inputPath, const std::string& outputPath, const std::vector<float>& kernel) {
@@ -108,11 +153,34 @@ void ConvolutionTester::runTest3(const std::string& inputPath, const std::string
     cv::imwrite(outputPath, outputMat);
 }
 
-void ConvolutionTester::runTests3(const std::vector<std::string>& inputPaths,
+void ConvolutionTester::runTests3(
+    const std::vector<std::string>& inputPaths,
     const std::vector<std::string>& outputPaths,
     const std::vector<float>& kernel) {
 
+    std::vector<double> executionTimes;
+
     for (size_t i = 0; i < inputPaths.size(); ++i) {
+        auto start = std::chrono::steady_clock::now();
+
         runTest3(inputPaths[i], outputPaths[i], kernel);
+
+        auto end = std::chrono::steady_clock::now();
+        double testTime = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        executionTimes.push_back(testTime);
     }
+
+    // Calculate mean (average) execution time
+    double meanTime = std::accumulate(executionTimes.begin(), executionTimes.end(), 0.0) / executionTimes.size();
+
+    // Calculate variance of execution time
+    double variance = 0.0;
+    for (double time : executionTimes) {
+        variance += (time - meanTime) * (time - meanTime);
+    }
+    variance /= executionTimes.size();
+
+    // Output mean and variance of execution time to console
+    std::cout << "Mean execution time across all images: " << meanTime << " milliseconds" << std::endl;
+    std::cout << "Variance of execution time across all images: " << variance << " milliseconds^2" << std::endl;
 }

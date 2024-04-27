@@ -5,7 +5,7 @@ def generate_images(num_images):
     # Generiše i čuva slike
     for i in range(1, num_images + 1):
         size = (i * 100, i * 100)
-        image = Image.new("RGB", size, "white")
+        image = Image.new("RGB", size, "red")
         image.save(f"input{i}.bmp")
         # image.save(f"C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\x64\\Debug\\input{i}.bmp")
 
