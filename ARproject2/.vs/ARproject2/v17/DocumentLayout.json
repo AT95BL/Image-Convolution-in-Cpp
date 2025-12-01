@@ -1,18 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\",
+  "WorkspaceRootPath": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\convolution_tester.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\convolution.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution_tester.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\convolution_tester.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\imageFolder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\imageFolder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\kernel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B576586-77B2-43A0-A0F0-5FF32CE0CE2E}|ARproject2\\ARproject2.vcxproj|solutionrelative:ARproject2\\kernel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +34,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "convolution_tester.h",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.h",
-              "RelativeDocumentMoniker": "ARproject2\\convolution_tester.h",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.h",
-              "RelativeToolTip": "ARproject2\\convolution_tester.h",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAABAAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-22T07:55:02.778Z"
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\main.cpp",
+              "RelativeDocumentMoniker": "ARproject2\\main.cpp",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\main.cpp",
+              "RelativeToolTip": "ARproject2\\main.cpp",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-01T19:38:13.881Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "convolution_tester.cpp",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.cpp",
-              "RelativeDocumentMoniker": "ARproject2\\convolution_tester.cpp",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\convolution_tester.cpp",
-              "RelativeToolTip": "ARproject2\\convolution_tester.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-22T07:55:16.834Z",
+              "DocumentIndex": 5,
+              "Title": "kernel.h",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\kernel.h",
+              "RelativeDocumentMoniker": "ARproject2\\kernel.h",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\kernel.h",
+              "RelativeToolTip": "ARproject2\\kernel.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-01T19:35:47.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "imageFolder.h",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\imageFolder.h",
+              "RelativeDocumentMoniker": "ARproject2\\imageFolder.h",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\imageFolder.h",
+              "RelativeToolTip": "ARproject2\\imageFolder.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-01T19:35:46.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "image.h",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\image.h",
+              "RelativeDocumentMoniker": "ARproject2\\image.h",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\image.h",
+              "RelativeToolTip": "ARproject2\\image.h",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-01T19:35:45.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\main.cpp",
-              "RelativeDocumentMoniker": "ARproject2\\main.cpp",
-              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\ARproject2\\main.cpp",
-              "RelativeToolTip": "ARproject2\\main.cpp",
-              "ViewState": "AQIAADgAAAAAAAAAAAAQwEcAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-22T07:55:41.442Z"
+              "Title": "convolution_tester.h",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution_tester.h",
+              "RelativeDocumentMoniker": "ARproject2\\convolution_tester.h",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution_tester.h",
+              "RelativeToolTip": "ARproject2\\convolution_tester.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-01T19:35:44.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "convolution.h",
+              "DocumentMoniker": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution.h",
+              "RelativeDocumentMoniker": "ARproject2\\convolution.h",
+              "ToolTip": "C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\Documents\\GitHub\\Image-Convolution-in-Cpp\\ARproject2\\ARproject2\\convolution.h",
+              "RelativeToolTip": "ARproject2\\convolution.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-01T19:35:42.976Z",
+              "EditorCaption": ""
             }
           ]
         }
