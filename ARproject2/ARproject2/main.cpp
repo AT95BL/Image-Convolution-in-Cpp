@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 
     if (argc == 3) {
         
-        // Učitavanje putanja iz argumenata komandne linije
+        // Loading paths from command line arguments
         std::string ulaznaPutanja = argv[1];
         std::string izlaznaPutanja = argv[2];
 
@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 
         if (testing) {
 
-            // Učitavanje slike iz BMP fajla (pretpostavljamo 24-bitni nekompresovani BMP format)
+            // Loading an image from a BMP file (assuming 24-bit uncompressed BMP format)
             int width = 0, height = 0;
             std::vector<Color> pixels = loadBMP2(ulaznaPutanja, width, height);
 
@@ -57,23 +57,23 @@ int main(int argc, char* argv[]) {
                 case 1: {
                     convolution(inputImage, Kernel::kernelIdentity, outputImage);
 
-                    // Konvolucija koristeći OpenCV kernel
+                    // Convolution using an OpenCV kernel
                     cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMat1;
                     cv::Mat kernelMat1 = cv::Mat(Kernel::kernelIdentity).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelIdentity.size())));
                     cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                    // Čuvanje rezultata slike koristeći OpenCV kernel
+                    // Saving the resulting image using an OpenCV kernel
                     cv::imwrite("izlaznaSlika_Identity_Kernel_opencv.bmp", outputMat1);
 
-                    // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Convolution using an optimized function with SIMD instructions
                     cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMatSimd;
                     cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelIdentity).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelIdentity.size())));
                     cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                    // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Saving the image result using an optimized function with SIMD instructions 
                     cv::imwrite("izlaznaSlika_Identity_Kernel_simd.bmp", outputMatSimd);
 
-                    // Čuvanje rezultata slike u BMP fajl
+                    // Saving the image result to a BMP file
                     saveBMP(izlaznaPutanja.c_str(), outputImage);
 
                     break;
@@ -82,23 +82,23 @@ int main(int argc, char* argv[]) {
                 case 2: {
                     convolution(inputImage, Kernel::kernelGaussianBlur, outputImage);
 
-                    // Konvolucija koristeći OpenCV kernel
+                    // Convolution using an OpenCV kernel
                     cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMat1;
                     cv::Mat kernelMat1 = cv::Mat(Kernel::kernelGaussianBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelGaussianBlur.size())));
                     cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                    // Čuvanje rezultata slike koristeći OpenCV kernel
+                    // Saving the image result using the OpenCV kernel
                     cv::imwrite("izlaznaSlika_Gaussian_Blur_Kernel_opencv.bmp", outputMat1);
 
-                    // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Convolution using the optimized function with SIMD instructions
                     cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMatSimd;
                     cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelGaussianBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelGaussianBlur.size())));
                     cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                    // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Saving the image result using the optimized function with SIMD instructions
                     cv::imwrite("izlaznaSlika_Sharpen_Kernel_simd.bmp", outputMatSimd);
 
-                    // Čuvanje rezultata slike u BMP fajl
+                    // Saving the image result to a BMP file
                     saveBMP(izlaznaPutanja.c_str(), outputImage);
 
                     break;
@@ -107,23 +107,23 @@ int main(int argc, char* argv[]) {
                 case 3: {
                     convolution(inputImage, Kernel::kernelEdgeDetection, outputImage);
 
-                    // Konvolucija koristeći OpenCV kernel
+                    // Convolution using an OpenCV kernel
                     cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMat1;
                     cv::Mat kernelMat1 = cv::Mat(Kernel::kernelEdgeDetection).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelEdgeDetection.size())));
                     cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                    // Čuvanje rezultata slike koristeći OpenCV kernel
+                    // Saving the resulting image using an OpenCV kernel
                     cv::imwrite("izlaznaSlika_Edge_Detection_Kernel_opencv.bmp", outputMat1);
 
-                    // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Convolution using the optimized function with SIMD instructions
                     cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMatSimd;
                     cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelEdgeDetection).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelEdgeDetection.size())));
                     cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                    // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Saving the image result using the optimized function with SIMD instructions
                     cv::imwrite("izlaznaSlika_Edge_Detection_Kernel_simd.bmp", outputMatSimd);
 
-                    // Čuvanje rezultata slike u BMP fajl
+                    // Saving the image result to a BMP file
                     saveBMP(izlaznaPutanja.c_str(), outputImage);
 
                     break;
@@ -132,23 +132,23 @@ int main(int argc, char* argv[]) {
                 case 4: {
                     convolution(inputImage, Kernel::kernelBoxBlur, outputImage);
 
-                    // Konvolucija koristeći OpenCV kernel
+                    // Convolution using an OpenCV kernel
                     cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMat1;
                     cv::Mat kernelMat1 = cv::Mat(Kernel::kernelBoxBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelBoxBlur.size())));
                     cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                    // Čuvanje rezultata slike koristeći OpenCV kernel
+                    // Saving the resulting image using an OpenCV kernel
                     cv::imwrite("izlaznaSlika_Box_Blur_Kernel_opencv.bmp", outputMat1);
 
-                    // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Convolution using the optimized function with SIMD instructions
                     cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMatSimd;
                     cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelBoxBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelBoxBlur.size())));
                     cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                    // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Saving the image result using the optimized function with SIMD instructions
                     cv::imwrite("izlaznaSlika_Box_Blur_Kernel_simd.bmp", outputMatSimd);
 
-                    // Čuvanje rezultata slike u BMP fajl
+                    // Saving the image result to a BMP file
                     saveBMP(izlaznaPutanja.c_str(), outputImage);
 
                     break;
@@ -157,23 +157,23 @@ int main(int argc, char* argv[]) {
                 case 5: {
                     convolution(inputImage, Kernel::kernelSharpen, outputImage);
 
-                    // Konvolucija koristeći OpenCV kernel
+                    // Convolution using an OpenCV kernel
                     cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMat1;
                     cv::Mat kernelMat1 = cv::Mat(Kernel::kernelSharpen).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelSharpen.size())));
                     cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                    // Čuvanje rezultata slike koristeći OpenCV kernel
+                    // Saving the resulting image using an OpenCV kernel
                     cv::imwrite("izlaznaSlika_Sharpen_Kernel_opencv.bmp", outputMat1);
 
-                    // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Convolution using the optimized function with SIMD instructions
                     cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                     cv::Mat outputMatSimd;
                     cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelSharpen).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelSharpen.size())));
                     cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                    // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                    // Saving the image result using the optimized function with SIMD instructions
                     cv::imwrite("izlaznaSlika_Sharpen_Kernel_simd.bmp", outputMatSimd);
 
-                    // Čuvanje rezultata slike u BMP fajl
+                    // Saving the image result to a BMP file
                     saveBMP(izlaznaPutanja.c_str(), outputImage);
 
                     break;
@@ -203,7 +203,7 @@ int main(int argc, char* argv[]) {
 
         int result = system("python imageGeneratorScript.py");
 
-        // Proverava da li je sistemski poziv uspešno izvršen
+        // Checks whether the system call was successfully executed
         if (result == 0) {
             std::cout << "Skripta je uspešno izvršena." << std::endl;
         }
@@ -211,7 +211,7 @@ int main(int argc, char* argv[]) {
             std::cout << "Greška prilikom izvršavanja skripte." << std::endl;
         }
 
-        // Čitanje broja test slika iz datoteke
+        // Reading the number of test images from the file
         std::ifstream file("num_images.txt");
         int num_images;
         file >> num_images;
@@ -324,7 +324,7 @@ int main(int argc, char* argv[]) {
 
     if (testing) {
 
-        // Učitavanje slike iz BMP fajla (pretpostavljamo 24-bitni nekompresovani BMP format)
+        // Loading an image from a BMP file (assuming 24-bit uncompressed BMP format)
         int width = 0, height = 0;
         std::vector<Color> pixels = loadBMP2("ulaznaSlika.bmp", width, height);
 
@@ -352,25 +352,25 @@ int main(int argc, char* argv[]) {
 
             case 1: {
                 convolution(inputImage, Kernel::kernelIdentity, outputImage);
-                // Čuvanje rezultata slike u BMP fajl
+                // Saving the image result to a BMP file
                 saveBMP("izlaznaSlika_Identity_Kernel_my.bmp", outputImage);
                 saveImageToFolder(outputImage, folder1, "output_image_my.bmp");
 
-                // Konvolucija koristeći OpenCV kernel
+                // Convolution using an OpenCV kernel
                 cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMat1;
                 cv::Mat kernelMat1 = cv::Mat(Kernel::kernelIdentity).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelIdentity.size())));
                 cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                // Čuvanje rezultata slike koristeći OpenCV kernel
+                // Saving the resulting image using an OpenCV kernel
                 cv::imwrite("izlaznaSlika_Identity_Kernel_opencv.bmp", outputMat1);
                 saveImageToFolder(outputImage, folder2, "output_image_opencv.bmp");
 
-                // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Convolution using the optimized function with SIMD instructions
                 cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMatSimd;
                 cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelIdentity).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelIdentity.size())));
                 cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Saving the image result using the optimized function with SIMD instructions
                 cv::imwrite("izlaznaSlika_Identity_Kernel_simd.bmp", outputMatSimd);
                 saveImageToFolder(outputImage, folder3, "output_image_opencv_simd.bmp");
 
@@ -379,25 +379,25 @@ int main(int argc, char* argv[]) {
 
             case 2: {
                 convolution(inputImage, Kernel::kernelGaussianBlur, outputImage);
-                // Čuvanje rezultata slike u BMP fajl
+                // Saving the image result to a BMP file
                 saveBMP("izlaznaSlika_Gaussian_Blur_Kernel_my.bmp", outputImage);
                 saveImageToFolder(outputImage, folder4, "output_image_my.bmp");
 
-                // Konvolucija koristeći OpenCV kernel
+                // Convolution using an OpenCV kernel
                 cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMat1;
                 cv::Mat kernelMat1 = cv::Mat(Kernel::kernelGaussianBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelGaussianBlur.size())));
                 cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                // Čuvanje rezultata slike koristeći OpenCV kernel
+                // Saving the resulting image using an OpenCV kernel
                 cv::imwrite("izlaznaSlika_Gaussian_Blur_Kernel_opencv.bmp", outputMat1);
                 saveImageToFolder(outputImage, folder5, "output_image_opencv.bmp");
 
-                // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Convolution using the optimized function with SIMD instructions
                 cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMatSimd;
                 cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelGaussianBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelGaussianBlur.size())));
                 cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Saving the image result using the optimized function with SIMD instructions
                 cv::imwrite("izlaznaSlika_Sharpen_Kernel_simd.bmp", outputMatSimd);
                 saveImageToFolder(outputImage, folder6, "output_image_opencv_simd.bmp");
 
@@ -406,25 +406,25 @@ int main(int argc, char* argv[]) {
             
             case 3: {
                 convolution(inputImage, Kernel::kernelEdgeDetection, outputImage);
-                // Čuvanje rezultata slike u BMP fajl
+                // Saving the image result to a BMP file
                 saveBMP("izlaznaSlika_Edge_Detection_Kernel_my.bmp", outputImage);
                 saveImageToFolder(outputImage, folder7, "output_image_my.bmp");
 
-                // Konvolucija koristeći OpenCV kernel
+                // Convolution using an OpenCV kernel
                 cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMat1;
                 cv::Mat kernelMat1 = cv::Mat(Kernel::kernelEdgeDetection).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelEdgeDetection.size())));
                 cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                // Čuvanje rezultata slike koristeći OpenCV kernel
+                // Saving the resulting image using an OpenCV kernel
                 cv::imwrite("izlaznaSlika_Edge_Detection_Kernel_opencv.bmp", outputMat1);
                 saveImageToFolder(outputImage, folder8, "output_image_opencv.bmp");
 
-                // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Convolution using the optimized function with SIMD instructions
                 cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMatSimd;
                 cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelEdgeDetection).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelEdgeDetection.size())));
                 cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Saving the image result using the optimized function with SIMD instructions
                 cv::imwrite("izlaznaSlika_Edge_Detection_Kernel_simd.bmp", outputMatSimd);
                 saveImageToFolder(outputImage, folder9, "output_image_opencv_simd.bmp");
 
@@ -433,25 +433,25 @@ int main(int argc, char* argv[]) {
 
             case 4: {
                 convolution(inputImage, Kernel::kernelBoxBlur, outputImage);
-                // Čuvanje rezultata slike u BMP fajl
+                // Saving the image result to a BMP file
                 saveBMP("izlaznaSlika_Box_Blur_kernel_my.bmp", outputImage);
                 saveImageToFolder(outputImage, folder10, "output_image_my.bmp");
 
-                // Konvolucija koristeći OpenCV kernel
+                // Convolution using an OpenCV kernel
                 cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMat1;
                 cv::Mat kernelMat1 = cv::Mat(Kernel::kernelBoxBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelBoxBlur.size())));
                 cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                // Čuvanje rezultata slike koristeći OpenCV kernel
+                // Saving the resulting image using an OpenCV kernel
                 cv::imwrite("izlaznaSlika_Box_Blur_Kernel_opencv.bmp", outputMat1);
                 saveImageToFolder(outputImage, folder11, "output_image_opencv.bmp");
 
-                // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Convolution using the optimized function with SIMD instructions
                 cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMatSimd;
                 cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelBoxBlur).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelBoxBlur.size())));
                 cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Saving the image result using the optimized function with SIMD instructions
                 cv::imwrite("izlaznaSlika_Box_Blur_Kernel_simd.bmp", outputMatSimd);
                 saveImageToFolder(outputImage, folder12, "output_image_opencv_simd.bmp");
 
@@ -460,25 +460,25 @@ int main(int argc, char* argv[]) {
 
             case 5: {
                 convolution(inputImage, Kernel::kernelSharpen, outputImage);
-                // Čuvanje rezultata slike u BMP fajl
+                // Saving the image result to a BMP file
                 saveBMP("izlaznaSlika_Sharpen_Kernel_my.bmp", outputImage);
                 saveImageToFolder(outputImage, folder13, "output_image_my.bmp");
 
-                // Konvolucija koristeći OpenCV kernel
+                // Convolution using an OpenCV kernel
                 cv::Mat inputMat1(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMat1;
                 cv::Mat kernelMat1 = cv::Mat(Kernel::kernelSharpen).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelSharpen.size())));
                 cv::filter2D(inputMat1, outputMat1, -1, kernelMat1);
-                // Čuvanje rezultata slike koristeći OpenCV kernel
+                // Saving the resulting image using an OpenCV kernel
                 cv::imwrite("izlaznaSlika_Sharpen_Kernel_opencv.bmp", outputMat1);
                 saveImageToFolder(outputImage, folder14, "output_image_opencv.bmp");
 
-                // Konvolucija koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Convolution using the optimized function with SIMD instructions
                 cv::Mat inputMatSimd(height, width, CV_8UC3, inputImage.pixels.data());
                 cv::Mat outputMatSimd;
                 cv::Mat kernelMatSimd = cv::Mat(Kernel::kernelSharpen).reshape(1, static_cast<int>(std::sqrt(Kernel::kernelSharpen.size())));
                 cv::filter2D(inputMatSimd, outputMatSimd, -1, kernelMatSimd, cv::Point(-1, -1), 0, cv::BORDER_CONSTANT);
-                // Čuvanje rezultata slike koristeći optimizovanu funkciju sa SIMD instrukcijama
+                // Saving the image result using the optimized function with SIMD instructions
                 cv::imwrite("izlaznaSlika_Sharpen_Kernel_simd.bmp", outputMatSimd);
                 saveImageToFolder(outputImage, folder15, "output_image_opencv_simd.bmp");
 

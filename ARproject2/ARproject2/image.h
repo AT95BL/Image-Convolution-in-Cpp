@@ -7,7 +7,7 @@
 #include <fstream>
 
 
-// Struktura za predstavljanje boje (24-bitni BMP format)
+// Structure for representing color (24-bit BMP format)
 struct Color {
 
     uint8_t blue, green, red;
@@ -16,27 +16,32 @@ struct Color {
     Color(uint8_t b, uint8_t g, uint8_t r) : blue(b), green(g), red(r) {}
 };
 
-// Struktura za predstavljanje slike
+// Structure for representing an image
 struct Image {
 
     int width, height;
 
-    /*
-    Korištenje std::vector<Color> za piksele u strukturi Image ima smisla jer omogućava fleksibilno upravljanje pikselima slike.
-    Evo nekoliko razloga zašto je std::vector<Color> odabran:
-    Dinamička veličina slike: std::vector omogućava jednostavno dodavanje i uklanjanje piksela iz slike.
-    To znači da se veličina slike ne mora unaprijed odrediti, već se može prilagoditi prema potrebi.
-    Jednostavno pristupanje pikselima: Korištenje vektora olakšava pristupanje pikselima slike pomoću indeksiranja.
-    Svaki piksel može se dohvatiti pomoću indeksa, na primjer pixels[i], gdje i predstavlja poziciju piksela u vektoru.
-    Optimalno korištenje memorije: Kada se vektor stvori s određenom početnom veličinom (kao u konstruktoru Image(int w, int h)),
-    memorija se rezervira unaprijed za sve piksele slike. To može poboljšati performanse i učiniti upravljanje memorijom efikasnijim.
-    Jednostavna manipulacija slikom: Korištenje vektora omogućava različite operacije nad slikom, poput kopiranja,
-    izmjene boja piksela ili primjene filtera, što olakšava rad s slikama u raznim aplikacijama.
-    Korištenje Color strukture u vektoru omogućava pohranjivanje boja svakog piksela na jednom mjestu.
-    Svaki element vektora predstavlja jedan piksel s tri komponente boje (crvena, zelena, plava),
-    što olakšava manipulaciju i analizu piksela u slici.
-*/
+/*
+Using `std::vector<Color>` for pixels in the `Image` structure makes sense because it allows flexible management of image pixels.
+Here are several reasons why `std::vector<Color>` was chosen:
 
+* Dynamic image size: `std::vector` allows easy addition and removal of pixels from the image.
+  This means that the image size does not need to be predetermined and can be adjusted as needed.
+
+* Easy access to pixels: Using a vector simplifies access to the image pixels via indexing.
+  Each pixel can be retrieved using an index, for example `pixels[i]`, where `i` represents the pixel’s position in the vector.
+
+* Optimal memory usage: When a vector is created with a specific initial size (as in the constructor `Image(int w, int h)`),
+  memory is reserved in advance for all image pixels. This can improve performance and make memory management more efficient.
+
+* Easy image manipulation: Using a vector allows various operations on the image, such as copying,
+  changing pixel colors, or applying filters, which simplifies working with images in different applications.
+
+* Color structure integration: Using the `Color` structure in the vector allows storing the color of each pixel in one place.
+  Each element of the vector represents a single pixel with three color components (red, green, blue),
+  making it easier to manipulate and analyze pixels in the image.
+  /*
+  
     std::vector<Color> pixels;
 
     Image(int w, int h) : width(w), height(h), pixels(w* h) {}
@@ -47,63 +52,57 @@ std::vector<Color> loadBMP1(const std::string&, int&, int&);
 std::vector<Color> loadBMP2(const std::string&, int&, int&);
 
 /*
-    Ovaj sljedeci code snippet definira strukturu BMPHeader koja predstavlja zaglavlje BMP (Bitmap) datoteke.
+The following code snippet defines the `BMPHeader` structure, which represents the header of a BMP (Bitmap) file.
 
-    Evo objašnjenja svake od svojstava u ovoj strukturi:
-    uint16_t signature: Ovo je 2-bajtno polje koje sadrži potpis BMP formata.
-    Uobičajeno je da ima vrijednost 0x4D42 (ili "BM" u ASCII formatu) kako bi označilo da je datoteka BMP formatirana.
+Here is an explanation of each property in this structure:
 
-    uint32_t fileSize: Ovo je 4-bajtno polje koje sadrži veličinu cijele BMP datoteke u bajtovima.
+* `uint16_t signature`: This is a 2-byte field that contains the BMP format signature.
+  It is usually set to `0x4D42` (or "BM" in ASCII) to indicate that the file is in BMP format.
 
-    uint32_t reserved: Ovo je 4-bajtno polje koje se obično ne koristi. Obično se postavlja na nulu.
+* `uint32_t fileSize`: A 4-byte field containing the size of the entire BMP file in bytes.
 
-    uint32_t dataOffset: Ovo je 4-bajtno polje koje sadrži pomak (offset) od početka datoteke do početka pikselskih podataka.
+* `uint32_t reserved`: A 4-byte field that is usually unused. It is typically set to zero.
 
-    Ono označava gdje započinju podaci slike u datoteci.
+* `uint32_t dataOffset`: A 4-byte field indicating the offset from the start of the file to the beginning of the pixel data.
+  It shows where the image data begins in the file.
 
-    uint32_t headerSize: Ovo je 4-bajtno polje koje sadrži veličinu zaglavlja BMP datoteke.
-    Uobičajeno je da ima vrijednost 40 bajtova.
+* `uint32_t headerSize`: A 4-byte field containing the size of the BMP header.
+  It is usually 40 bytes.
 
-    int32_t width: Ovo je 4-bajtno polje koje sadrži širinu slike u pikselima.
+* `int32_t width`: A 4-byte field representing the width of the image in pixels.
 
-    int32_t height: Ovo je 4-bajtno polje koje sadrži visinu slike u pikselima.
+* `int32_t height`: A 4-byte field representing the height of the image in pixels.
 
-    uint16_t planes: Ovo je 2-bajtno polje koje označava broj ravni slike.
+* `uint16_t planes`: A 2-byte field indicating the number of image planes.
+  It is usually set to 1.
 
-    Uobičajeno je da ima vrijednost 1.
+* `uint16_t bitsPerPixel`: A 2-byte field representing the number of bits per pixel.
+  Typically 24 for a 24-bit image (RGB).
 
-    uint16_t bitsPerPixel:
-    Ovo je 2-bajtno polje koje označava broj bitova po pikselu.
-    Obično se koristi 24 za 24-bitnu sliku (RGB).
+* `uint32_t compression`: A 4-byte field indicating the compression method used for the image.
+  Usually 0 for uncompressed images.
 
-    uint32_t compression:
-    Ovo je 4-bajtno polje koje označava način kompresije slike.
-    Obično je postavljeno na 0 za nekompresiranu sliku.
+* `uint32_t imageSize`: A 4-byte field representing the size of the pixel data.
+  For uncompressed images, this is usually 0.
 
-    uint32_t imageSize:
-    Ovo je 4-bajtno polje koje označava veličinu pikselskih podataka slike.
-    Ako je slika nekompresirana, ovo obično ima vrijednost 0.
+* `int32_t xPixelsPerMeter` and `int32_t yPixelsPerMeter`: 4-byte fields indicating the number of pixels per meter in horizontal and vertical directions.
+  Usually set to 0.
 
-    int32_t xPixelsPerMeter i int32_t yPixelsPerMeter:
-    Ovo su 4-bajtna polja koja označavaju broj piksela po metru u horizontalnom i vertikalnom smjeru.
-    Obično se postavljaju na 0.
+* `uint32_t colorsUsed`: A 4-byte field representing the number of colors in the palette.
+  If the entire palette is used, it is usually set to 0.
 
-    uint32_t colorsUsed:
-    Ovo je 4-bajtno polje koje označava broj boja u paleti.
-    Ako se koristi cijela paleta, obično je postavljeno na 0.
+* `uint32_t colorsImportant`: A 4-byte field indicating the number of bits important for color display.
+  If all bits are important, it is usually set to 0.
 
-    uint32_t colorsImportant:
-    Ovo je 4-bajtno polje koje označava broj bitova koji su važni za prikaz boja.
-    Ako su svi bitovi važni, obično je postavljeno na 0.
-
-    #pragma pack(push, 1) i #pragma pack(pop) su direktive preprocesora koje kontroliraju poravnanje struktura u memoriji.
-    U ovom slučaju, #pragma pack(push, 1) govori kompilatoru da koristi poravnanje od 1 bajta za strukture koje slijede,
-    što znači da se svaki član strukture pohranjuje bez dodatnih praznina između članova.
-    Ovo se obično koristi kako bi se osiguralo da struktura ima istu veličinu u memoriji kao što se očekuje,
-    što može biti važno prilikom čitanja ili pisanja binarnih datoteka.
-    #pragma pack(pop) vraća originalne postavke poravnanja nakon što je definicija strukture završena.
+* `#pragma pack(push, 1)` and `#pragma pack(pop)` are preprocessor directives that control structure alignment in memory.
+  In this case, `#pragma pack(push, 1)` tells the compiler to use 1-byte alignment for the following structures,
+  meaning each member of the structure is stored without additional padding between members.
+  This is often used to ensure the structure has the exact size in memory as expected,
+  which is important when reading or writing binary files.
+  `#pragma pack(pop)` restores the original alignment settings after the structure definition.
 */
-#pragma pack(push, 1)  // Isključivanje poravnanja bajtova u strukturi
+
+#pragma pack(push, 1)  // Disabling byte alignment in the structure
 struct BMPHeader {
     uint16_t signature;
     uint32_t fileSize;

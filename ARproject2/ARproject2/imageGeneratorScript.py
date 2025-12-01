@@ -1,6 +1,6 @@
 ﻿from PIL import Image
 
-# Funkcija za generisanje slika
+# Function for generating images
 def generate_images(num_images):
     # Generiše i čuva slike
     for i in range(1, num_images + 1):
@@ -10,17 +10,17 @@ def generate_images(num_images):
         # image.save(f"C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\x64\\Debug\\input{i}.bmp")
 
 
-# Interaktivni unos korisnika za broj slika
+# Interactive user input for the number of images
 def main():
-    # Otvaranje datoteke za pisanje
+    # Opening the file for writing
     with open("num_images.txt", "w") as file:
     # with open("C:\\Users\\Korisnik.DESKTOP-JVOQTMK\\source\\repos\\ARproject2\\x64\\Debug\\num_images.txt", "w") as file:
-        # Korisnik unosi broj test slika
+        # The user enters the number of test images
         num_images = int(input("Unesite broj test slika: "))
-        # Upisivanje broja test slika u datoteku
+        # Writing the number of test images to the file
         file.write(str(num_images))
 
-    # Generisanje slika
+    # Generating images
     generate_images(num_images)
     print(f"Generisano je {num_images} test slika.")
 

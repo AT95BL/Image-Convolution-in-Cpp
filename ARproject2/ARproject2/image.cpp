@@ -1,75 +1,82 @@
 ﻿#include "image.h"
+/*
+This is a function for loading a BMP image from a file.
+Here is an explanation of the steps in the function:
+
+1. std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height) {
+   This function takes the BMP file name (`filename`) and references to the variables `width` and `height`,
+   which will be updated with the dimensions of the loaded image.
+   It returns a vector of the image’s pixels.
+
+2. std::ifstream file(filename, std::ios::binary);
+   Opens an input file stream in binary mode using `std::ifstream`.
+   If the file cannot be opened, an appropriate error is printed and the program terminates.
+
+3. BMPHeader header;
+   Declares a variable `header` of type `BMPHeader` which will hold the BMP file header.
+
+4. file.read(reinterpret_cast<char*>(&header), sizeof(BMPHeader));
+   Reads the file header into the `header` variable.
+
+5. if (header.signature != 0x4D42) {
+   Checks the BMP signature.
+   If the signature is not "BM" (0x4D42), an error is printed and the program terminates.
+
+6. if (header.bitsPerPixel != 24) {
+   Checks the number of bits per pixel.
+   If it is not 24, which would indicate a 24-bit RGB image format, an error is printed and the program terminates.
+
+7. width = header.width; height = header.height;
+   Sets the image width and height based on the values from the header.
+
+8. std::vector<Color> pixels(width * height);
+   Creates a `pixels` vector that will hold the image pixels.
+   The size of the vector is set to `width * height`.
+
+9. file.seekg(header.dataOffset);
+   Moves the file's read cursor to the start of the pixel data, as indicated in the header.
+
+10. for (int y = height - 1; y >= 0; --y) { for (int x = 0; x < width; ++x) { ... } }
+    Loops through the image pixels being read from the file.
+    It processes each row from bottom to top because BMP stores rows in reverse order.
+
+11. file.read(reinterpret_cast<char*>(&pixel), sizeof(Color));
+    Reads a pixel from the file and stores it in the variable `pixel`.
+
+12. pixels[y * width + x] = pixel;
+    Stores the pixel in the appropriate position inside the pixel vector.
+
+13. int padding = (4 - (width * sizeof(Color)) % 4) % 4;
+    Calculates the padding bytes at the end of each row.
+    This is necessary because rows in a BMP file are aligned to 4-byte boundaries.
+
+14. file.seekg(padding, std::ios::cur);
+    Moves the read cursor forward by the number of padding bytes, skipping any empty space at the end of the row.
+
+15. return pixels;
+    Returns the pixel vector containing the loaded image pixels.
+
 
 /*
-* Ovo je funkcija za učitavanje BMP slike iz datoteke.
-  Evo objašnjenja koraka u funkciji:
 
-    1. `std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height)
-        {`: Ova funkcija prima ime datoteke BMP slike (`filename`) i reference na varijable `width` i `height`
-        koje će se ažurirati s dimenzijama učitane slike.
-        Vraća vektor piksela slike.
-
-    2. `std::ifstream file(filename, std::ios::binary);`:
-        Otvara se ulazni tok datoteke u binarnom modu koristeći `std::ifstream`.
-        Ako nije moguće otvoriti datoteku, ispisuje se odgovarajuća greška i program se završava.
-
-    3. `BMPHeader header;`: Deklarira se promjenjiva `header` tipa `BMPHeader` koja će sadržavati zaglavlje BMP datoteke.
-
-    4. `file.read(reinterpret_cast<char*>(&header), sizeof(BMPHeader));`: Učitava se zaglavlje datoteke u promjenjivu `header`.
-
-    5. `if (header.signature != 0x4D42) {`: Provjerava se potpis BMP formata.
-    Ako potpis nije "BM" (0x4D42), ispisuje se greška i program se završava.
-
-    6. `if (header.bitsPerPixel != 24) {`: Provjerava se broj bitova po pikselu.
-        Ako nije 24, što bi ukazivalo na 24-bitni RGB format slike, ispisuje se greška i program se završava.
-
-    7. `width = header.width; height = header.height;`:
-    Postavljaju se širina i visina slike na osnovu vrijednosti iz zaglavlja.
-
-    8. `std::vector<Color> pixels(width * height);`:
-    Stvara se vektor `pixels` koji će sadržavati piksele slike. Veličina vektora se postavlja na `width * height`.
-
-    9. `file.seekg(header.dataOffset);`:
-    Pomakne se čitač datoteke na početak pikselskih podataka, kako je određeno u zaglavlju.
-
-    10. `for (int y = height - 1; y >= 0; --y) { for (int x = 0; x < width; ++x) { ... } }`:
-    U petlji se čitaju pikseli slike iz datoteke. Prolazi se kroz svaki red od zadnjeg prema prvom,
-    zbog načina na koji su pikseli pohranjeni u BMP formatu.
-
-    11. `file.read(reinterpret_cast<char*>(&pixel), sizeof(Color));`:
-    Učitava se piksel iz datoteke i smješta u promjenjivu `pixel`.
-
-    12. `pixels[y * width + x] = pixel;`:
-    Piksel se dodaje u vektor piksela na odgovarajuću poziciju.
-
-    13. `int padding = (4 - (width * sizeof(Color)) % 4) % 4;`:
-    Izračunava se broj bajtova poravnanja na kraju svakog reda.
-    To je neophodno jer su retci u BMP datoteci poravnati na riječnu granicu (obično 4 bajta).
-
-    14. `file.seekg(padding, std::ios::cur);`:
-    Čitač se pomjera prema naprijed za broj bajtova poravnanja, preskačući eventualne praznine na kraju reda.
-
-    15. `return pixels;`: Vraća se vektor piksela koji sadrži učitane piksele slike.
-*/
-
-// Funkcija za učitavanje BMP slike
+// Function for loading a BMP image
 std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height) {
     std::ifstream file(filename, std::ios::binary);
     if (!file) {
-        std::cerr << "Nije moguće otvoriti fajl: " << filename << std::endl;
+        std::cerr << "Unable to open the file: " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
     BMPHeader header;
     file.read(reinterpret_cast<char*>(&header), sizeof(BMPHeader));
 
-    if (header.signature != 0x4D42) {  // "BM" u little-endian formatu
-        std::cerr << "Nevažeći BMP format: " << filename << std::endl;
+    if (header.signature != 0x4D42) {  // "BM" in little-endian format
+        std::cerr << "Invalid BMP format: " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
     if (header.bitsPerPixel != 24) {
-        std::cerr << "Očekuje se 24-bitni BMP format, ali datoteka ima " << header.bitsPerPixel << " bita po pikselu." << std::endl;
+        std::cerr << "Expected a 24-bit BMP format, but the file has " << header.bitsPerPixel << " bits per pixel." << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -86,7 +93,7 @@ std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height
             pixels[y * width + x] = pixel;
         }
 
-        // Preskakanje eventualnih bajtova poravnanja na kraju reda
+        // Skipping any padding bytes at the end of the row
         int padding = (4 - (width * sizeof(Color)) % 4) % 4;
         file.seekg(padding, std::ios::cur);
     }
@@ -94,24 +101,24 @@ std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height
     return pixels;
 }
 
-// Funkcija za učitavanje BMP slike
+// Function for loading a BMP image
 std::vector<Color> loadBMP2(const std::string& filename, int& width, int& height) {
     std::ifstream file(filename, std::ios::binary);
     if (!file) {
-        std::cerr << "Nije moguće otvoriti fajl: " << filename << std::endl;
+        std::cerr << "Cannot open the file: " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
     BMPHeader header;
     file.read(reinterpret_cast<char*>(&header), sizeof(BMPHeader));
 
-    if (header.signature != 0x4D42) {  // "BM" u little-endian formatu
+    if (header.signature != 0x4D42) {  // "BM" in little-endian format
         std::cerr << "Nevažeći BMP format: " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
     if (header.bitsPerPixel != 24) {
-        std::cerr << "Očekuje se 24-bitni BMP format, ali datoteka ima " << header.bitsPerPixel << " bita po pikselu." << std::endl;
+        std::cerr << "Expected a 24-bit BMP format, but the file has " << header.bitsPerPixel << " bits per pixel." << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -128,7 +135,7 @@ std::vector<Color> loadBMP2(const std::string& filename, int& width, int& height
             pixels[y * width + x] = pixel;
         }
 
-        // Preskakanje eventualnih bajtova poravnanja na kraju reda
+        // Skipping any potential padding bytes at the end of the row
         int padding = (4 - (width * sizeof(Color)) % 4) % 4;
         file.seekg(padding, std::ios::cur);
     }
@@ -137,51 +144,51 @@ std::vector<Color> loadBMP2(const std::string& filename, int& width, int& height
 }
 
 /*
-*    Ova funkcija `saveBMP` koristi se za spremanje slike u BMP formatu u datoteku.
-    Evo detaljnog objašnjenja koraka u funkciji:
+*    This function `saveBMP` is used to save an image in BMP format to a file.
+     Here is a detailed explanation of the steps in the function:
 
     1. `void saveBMP(const std::string& filename, const Image& image)
-        {`: Ova funkcija prima ime datoteke u koju će se spremiti slika (`filename`)
-        i konstantnu referencu na objekt `Image` koji sadrži sliku koja se sprema.
+        {`: This function takes the name of the file in which the image will be saved (`filename`)
+         a constant reference to an `Image` object that contains the image to be saved.
 
     2. `std::ofstream file(filename, std::ios::binary);`:
-        Otvaramo izlazni tok datoteke u binarnom modu koristeći `std::ofstream`.
-           Ako nije moguće otvoriti datoteku, ispisuje se odgovarajuća greška i program se završava.
+        We open an output file stream in binary mode using std::ofstream.
+        If the file cannot be opened, an appropriate error is printed and the program terminates.
 
     3. `BMPHeader header;`:
-        Stvara se zaglavlje BMP datoteke koje će se koristiti za postavljanje metapodataka slike.
+        A BMP file header is created, which will be used to set the image metadata.
 
-    4. Postavljanje vrijednosti zaglavlja BMP datoteke na odgovarajuće vrijednosti. Ovdje se postavljaju:
-        - `signature`: Potpis BMP formata ("BM" u little-endian formatu).
-        - `fileSize`: Veličina datoteke, uključujući zaglavlje i piksele slike.
-        - `reserved`: Rezervirano, obično 0.
-        - `dataOffset`: Pomak do početka pikselskih podataka u datoteci.
-        - `headerSize`: Veličina zaglavlja, obično 40 bajta.
-        - `width` i `height`: Širina i visina slike.
-        - `planes`: Broj ravni u BMP datoteci, obično 1.
-        - `bitsPerPixel`: Broj bitova po pikselu, u ovom slučaju 24 jer se koristi 24-bitni RGB format.
-        - `compression`: Metoda kompresije, obično 0 za nekomprimirane slike.
-        - `imageSize`: Veličina podataka slike, uključujući piksele.
-        - `xPixelsPerMeter` i `yPixelsPerMeter`: Broj piksela po metru, obično 0.
-        - `colorsUsed` i `colorsImportant`: Broj boja koje se koriste i koje su bitne za prikaz, obično 0 za 24-bitne slike.
+    4. Setting the values of the BMP file header to the appropriate values. Here we set:
+         signature: BMP format signature ("BM" in little-endian format).
+         fileSize: The size of the file, including the header and image pixels.
+         reserved: Reserved, usually 0.
+         dataOffset: Offset to the start of the pixel data in the file.
+         headerSize: Size of the header, usually 40 bytes.
+         width and height: Width and height of the image.
+         planes: Number of planes in the BMP file, usually 1.
+         bitsPerPixel: Number of bits per pixel, in this case 24, as 24-bit RGB format is used.
+         compression: Compression method, usually 0 for uncompressed images.
+         imageSize: Size of the image data, including the pixels.
+         xPixelsPerMeter and yPixelsPerMeter: Number of pixels per meter, usually 0.
+         colorsUsed and colorsImportant: Number of colors used and important for display, usually 0 for 24-bit images.
+ 
 
     5. `file.write(reinterpret_cast<char*>(&header), sizeof(BMPHeader));`:
-        Zaglavlje se zapisuje u datoteku.
+        The header is written to the file.
 
-    6. Nakon zaglavlja, pikseli slike se zapisuju u datoteku.
-       Prolazi se kroz svaki red slike, od zadnjeg prema prvom, zbog načina na koji su pikseli pohranjeni u BMP formatu.
+    6. After the header, the image pixels are written to the file.
+       Each row of the image is processed from the last to the first, due to the way pixels are stored in the BMP format.
 
-    7. Svaki piksel se zapisuje u datoteku koristeći `file.write` metodu.
-       Pristupamo pikselu u vektoru piksela pomoću indeksiranja po koordinatama (x, y) i koristimo `reinterpret_cast` kako bismo
-       dobili pokazivač na bajtove piksela.
+    7. Each pixel is written to the file using the `file.write` method.
+       We access a pixel in the pixel vector using (x, y) coordinate indexing and use `reinterpret_cast` to obtain a pointer to the pixel bytes.
 
-    8. Nakon što su svi pikseli zapisani za red, dodaje se odgovarajući broj bajtova poravnanja na kraju reda.
-       To je neophodno jer su retci u BMP datoteci poravnati na riječnu granicu (obično 4 bajta).
+    8. After all pixels for a row are written, the corresponding number of padding bytes is added at the end of the row.
+This is necessary because rows in a BMP file are aligned to a word boundary (usually 4 bytes).
 
-    Ovim koracima se osigurava da se slika ispravno spremi u BMP formatu u datoteku.
+    These steps ensure that the image is correctly saved in BMP format to the file.
 */
 
-// Funkcija za čuvanje BMP slike
+// Function for saving a BMP image
 
 void saveBMP(const std::string& filename, const Image& image) {
     std::ofstream file(filename, std::ios::binary);
@@ -190,9 +197,9 @@ void saveBMP(const std::string& filename, const Image& image) {
         exit(EXIT_FAILURE);
     }
 
-    // Header za BMP fajl
+    // Header for BMP file
     BMPHeader header;
-    header.signature = 0x4D42;  // "BM" u little-endian formatu
+    header.signature = 0x4D42;  // "BM" in little-endian format
     header.fileSize = sizeof(BMPHeader) + image.width * image.height * sizeof(Color) + image.height * (4 - (image.width * sizeof(Color)) % 4) % 4;
     header.reserved = 0;
     header.dataOffset = sizeof(BMPHeader);
@@ -210,13 +217,13 @@ void saveBMP(const std::string& filename, const Image& image) {
 
     file.write(reinterpret_cast<char*>(&header), sizeof(BMPHeader));
 
-    // Upisivanje piksela slike
+    // Writing the image pixels
     for (int y = image.height - 1; y >= 0; --y) {
         for (int x = 0; x < image.width; ++x) {
             file.write(reinterpret_cast<char*>(const_cast<Color*>(&image.pixels[y * image.width + x])), sizeof(Color));
         }
 
-        // Dodavanje bajtova poravnanja na kraju reda
+        // Adding padding bytes at the end of the row
         int padding = (4 - (image.width * sizeof(Color)) % 4) % 4;
         for (int i = 0; i < padding; ++i) {
             file.put(0);

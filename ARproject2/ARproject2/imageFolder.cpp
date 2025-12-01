@@ -1,17 +1,17 @@
 ﻿#include "imageFolder.h"
 
-// Funkcija koja čuva sliku u odgovarajući folder
+// Function that saves the image to the appropriate folder
 void saveImageToFolder(const Image& outputImage, const std::string& folderPath, const std::string& imageName) {
-    // Formirajte putanju do foldera
+    // Form the path to the folder
     fs::path folder(folderPath);
 
-    // Proverite da li folder postoji, ako ne, kreirajte ga
+    // Check if the folder exists, and if not, create it
     if (!fs::exists(folder))
         fs::create_directory(folder);
 
-    // Formirajte putanju do slike
+    // Form the path to the image
     fs::path imagePath = folder / imageName;
 
-    // Čuvanje slike u BMP formatu
+    // Saving the image in BMP format
     saveBMP(imagePath.string(), outputImage);
 }
