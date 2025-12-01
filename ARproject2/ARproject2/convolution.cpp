@@ -1,25 +1,37 @@
 ﻿#include "convolution.h"
 
-// Funkcija za primenu konvolucije na sliku
+// Function for applying convolution to an image
 
 /*
-    Ova funkcija implementira postupak konvolucije nad slikom koristeći zadani kernel.
-    Evo detaljnog objašnjenja koraka koje funkcija izvršava:
-    Izračunavanje veličine kernela: Funkcija prvo izračunava veličinu kernela, što je korisno za iteriranje kroz kernel.
-    Veličina kernela se određuje kao kvadratni korijen od ukupnog broja elemenata u kernelu.
-    Iteriranje kroz sliku: Koristeći dvije ugniježđene petlje, funkcija iterira kroz svaki piksel slike.
-    Vanjska petlja prolazi kroz redove slike (y-koordinate), dok unutarnja petlja prolazi kroz piksele u svakom retku (x-koordinate).
-    Primjena konvolucije: Za svaki piksel, funkcija primjenjuje konvoluciju koristeći zadani kernel.
-    Unutar svakog piksela,
-    prolazi se kroz sve elemente kernela i za svaki piksel u blizini trenutnog piksela se primjenjuje odgovarajući element kernela.
-    Ovo uključuje računanje ponderirane sume vrijednosti boje piksela susjednih piksela prema kernelu.
-    Pohrana rezultata: Nakon primjene konvolucije, rezultat se pohranjuje u odgovarajući piksel izlazne slike.
-    Boja svakog piksela izlazne slike se računa kao težinska suma boja susjednih piksela prema kernelu.
-    Ograničavanje vrijednosti boja: Kako bi se osiguralo da rezultati ostanu unutar raspona [0, 255],
-    vrijednosti boja su ograničene na taj raspon.
-    Osim toga, ova funkcija je paralelizirana pomoću #pragma omp parallel for collapse(2),
-    što omogućava istovremenu obradu više piksela slike u više niti, poboljšavajući performanse algoritma na višejezgarnim procesorima.
+This function implements the process of convolution on an image using a given kernel.
+Here is a detailed explanation of the steps the function performs:
+
+**Calculating the kernel size:**
+The function first calculates the size of the kernel, which is useful for iterating through it.
+The size of the kernel is determined as the square root of the total number of elements in the kernel.
+
+**Iterating through the image:**
+Using two nested loops, the function iterates through every pixel of the image.
+The outer loop goes through the rows of the image (y-coordinates), while the inner loop goes through the pixels in each row (x-coordinates).
+
+**Applying convolution:**
+For each pixel, the function applies convolution using the given kernel.
+Within each pixel, it loops through all the elements of the kernel, and for each pixel near the current pixel, it applies the corresponding kernel value.
+This includes computing the weighted sum of the color values of the neighboring pixels according to the kernel.
+
+**Storing the result:**
+After applying convolution, the result is stored in the appropriate pixel of the output image.
+The color of each pixel in the output image is calculated as the weighted sum of the colors of the neighboring pixels according to the kernel.
+
+**Clamping color values:**
+To ensure that the results stay within the range [0, 255],
+the color values are clamped to that range.
+
+In addition, this function is parallelized using `#pragma omp parallel for collapse(2)`,
+which allows multiple pixels of the image to be processed simultaneously across several threads, improving performance on multi-core processors.
 */
+
+
 void convolution(const Image& input, const std::vector<float>& kernel, Image& output) {
     int kernelSize = static_cast<int>(std::sqrt(kernel.size()));
     int kernelRadius = kernelSize / 2;
