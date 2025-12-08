@@ -57,7 +57,7 @@ Here is an explanation of the steps in the function:
     Returns the pixel vector containing the loaded image pixels.
 
 
-/*
+*/
 
 // Function for loading a BMP image
 std::vector<Color> loadBMP1(const std::string& filename, int& width, int& height) {
